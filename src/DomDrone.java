@@ -8,8 +8,18 @@ public class DomDrone {
     public static final int TIME_UNIT = 1500;
 
     public static void main(String args[]) {
+        JoyStick joyStick=new JoyStick();
+        Thread joyStickThread=new Thread(joyStick);
+        joyStickThread.start();
+
         try (CoDrone drone = new CoDrone()){
             drone.connect();
+            joyStick.setDrone(drone);
+            try {
+                Thread.sleep(20000000);
+            } catch (InterruptedException e) {
+
+            }
             LightMode mode= new LightModeBuilder().setColor("YELLOW").setMode(LightModeDrone.EYE_FLICKER).build();
             drone.lightMode(mode);
             mode= new LightModeBuilder().setColor("orange").setMode(LightModeDrone.ARM_FLICKER).build();

@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JCoDrone" level="project" />
+    <orderEntry type="library" name="jinput" level="project" />
   </component>
 </module>
